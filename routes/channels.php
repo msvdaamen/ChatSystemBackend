@@ -11,6 +11,16 @@
 |
 */
 
+use Illuminate\Support\Facades\Broadcast;
+
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('notifications.{friend_id}', function ($user, $friend_id) {
+    return $user->id === $friend_id;
+});
+
+Broadcast::channel('friends.{friend_id}', function ($user, $friend_id) {
+    return $user->id === $friend_id;
 });

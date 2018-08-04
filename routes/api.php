@@ -18,4 +18,16 @@ Route::post('register', 'Auth\RegisterController@register')->name('auth.register
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', 'Auth\LoginController@logout')->name('auth.name');
     Route::get('me', 'Auth\LoginController@me')->name('auth.me');
+
+    Route::get('applications', 'ApplicationsController@index');
+    Route::get('dashboard', 'DashboardController@index');
+    Route::put('dashboard', 'DashboardController@add');
+    Route::delete('dashboard/{id}', 'DashboardController@remove');
+
+    Route::get('friends', 'FriendsController@index');
+    Route::get('friendsPending', 'FriendsController@pending');
+    Route::put('friends', 'FriendsController@add');
+    Route::post('friendConfirm', 'FriendsController@confirm');
+
+    Route::post('search', 'FriendsController@search');
 });

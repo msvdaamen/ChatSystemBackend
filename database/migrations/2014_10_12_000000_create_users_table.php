@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('api_token', 60)->nullable()->unique();
             $table->tinyInteger('verified')->default(0);
             $table->string('email_verification_token', 60)->nullable()->unique();
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
         });
